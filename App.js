@@ -1,13 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { Button, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 export default function App() {
+  const [textContent, setTextContent] = useState("Ella is stoopid...");
+  const handlePress = () => {
+    textContent === "Ella is stoopid..." ? setTextContent(":)") : setTextContent("Ella is stoopid...");
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
+      <Text>{textContent}</Text>
+      <Button onPress={handlePress} title="Click Me!" />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
