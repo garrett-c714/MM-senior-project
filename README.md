@@ -1,4 +1,4 @@
-## <NO-WORKING-TITLE>  🚀
+## NO-WORKING-TITLE  🚀
 
 An all-in-one productivity app designed by students, for students. ✨💰
 
