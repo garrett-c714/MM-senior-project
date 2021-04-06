@@ -4,16 +4,21 @@ import {useDimensions} from '@react-native-community/hooks';
 
 const NavBar = props => {
     const dimensions = useDimensions();
+    const {bgColor} = props;
     return (
-    <View style={[styles.nav, {width: dimensions.window.width}]}>
-        <Image source={require('../../assets/bamhurger.png')} />
+    <View style={[styles.nav, {width: dimensions.window.width, backgroundColor: bgColor}]}>
+        <Image style={styles.img} source={require('../../assets/bamhurger.png')} />
     </View>);
 }
 
 const styles = StyleSheet.create({
     nav: {
-        backgroundColor: 'blue',
+        //backgroundColor: 'blue',
         height: 65
+    },
+    img: {
+        height: 60,
+        width: 60
     }
 });
 
