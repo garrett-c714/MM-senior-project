@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { Button, StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { Button, StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import NavBar from './source/components/NavBar.js';
 
 export default function App() {
@@ -17,6 +17,7 @@ export default function App() {
       <View style={styles.main}>
       <Text>{textContent}</Text>
         <Button onPress={handlePress} title="Click Me!" />
+        {/*<Image style={{width: 50, height: 50}} source={require('./assets/bamhurger.png')} />*/}
       </View>
       <StatusBar style="auto" />
     </SafeAreaView>
