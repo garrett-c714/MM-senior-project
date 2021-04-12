@@ -1,17 +1,14 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image} from 'react-native';
+import {View, StyleSheet, Text, Image, ImageBackground} from 'react-native';
 
 const HomeHeader = props => {
+  const image = require('../../assets/header-background.jpg')
     return (
-        <View style={styles.headerBox}> 
-        <View style={styles.headerText}>
-            <Text style={styles.welcome}>Welcome, Garrett!</Text>
-            <Text>-- Wednesday, April 7th, 2021 --</Text>
-        </View>
-        <View style={styles.buttonBox}>
-          <Image style={styles.img} source={require('../../assets/bamhurger.png')} />
-          <Image style={styles.img} source={require('../../assets/bamhurger.png')} />
-        </View>
+      <View style={styles.headerBox}> 
+        <ImageBackground source={ image } style={styles.headerText}>
+            <Text style={[styles.welcome, styles.text]}>Welcome, Garrett!</Text>
+            <Text style={styles.text}>-- Wednesday, April 7th, 2021 --</Text>
+        </ImageBackground>
       </View>
     );
 }
@@ -19,33 +16,22 @@ const HomeHeader = props => {
 const styles = StyleSheet.create({
     headerBox: {
         flexDirection: 'row',
-        height: 200,
+        height: 250,
         width: '100%',
       },
       headerText: {
-        //borderWidth: 2,
-        //borderColor: 'black',
         height: '100%',
         flexGrow: 4,
         alignItems: 'center',
         justifyContent: 'center',
       },
-      buttonBox: {
-        //borderWidth: 2,
-        //borderColor: 'green',
-        flexGrow: 3,
-        backgroundColor: 'black',
-        justifyContent: 'space-around',
-        alignItems: 'center'
+      text: {
+        color: 'white',
       },
       welcome: {
         fontSize: 50,
         fontFamily: 'Arial',
       },
-      img: {
-        width: "50%",
-        height: '50%'
-      }
 })
 
 export default HomeHeader;

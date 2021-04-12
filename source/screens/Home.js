@@ -3,6 +3,7 @@ import {SafeAreaView, View, StyleSheet, Button, Text, Image} from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import NavBar from '../components/NavBar.js';
 import HomeHeader from '../components/HomeHeader.js';
+import Widgets from '../components/Widgets.js';
 
 const Home = props => {
     const startPhrase = "Hello World!";
@@ -15,9 +16,10 @@ const Home = props => {
     return (
     <SafeAreaView style={styles.container}>
       <View>
-        <NavBar bgColor={'dodgerblue'} />
+        <NavBar bgColor={'#6FBB85'} />
       </View>
       <HomeHeader />
+      <Widgets />
       <View style={styles.main}>
         <Text>{textContent}</Text>
         <Button onPress={handlePress} title="Click Me!" />
