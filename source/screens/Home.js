@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView, View, StyleSheet, Button, Text, Image} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import Colors from '../colors.js';
 import NavBar from '../components/NavBar.js';
 import HomeHeader from '../components/HomeHeader.js';
 import Widgets from '../components/Widgets.js';
@@ -16,7 +17,7 @@ const Home = props => {
     return (
     <SafeAreaView style={styles.container}>
       <View>
-        <NavBar bgColor={'#6FBB85'} />
+        <NavBar bgColor={Colors.mintGreen} />
       </View>
       <HomeHeader />
       <Widgets />
