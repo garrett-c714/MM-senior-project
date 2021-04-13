@@ -4,17 +4,10 @@ import {useDimensions} from '@react-native-community/hooks';
 
 const NavBar = props => {
     const dimensions = useDimensions();
-    const startAlign = 'flex-start';
-    const startPath = require('../../assets/bamhurger.png');
-    const [requirePath, setRequirePath] = useState(startPath);
-    const [align, setAlign] = useState(startAlign);
-    const {bgColor} = props;
+    
+    const {bgColor, handlePress, requirePath, align} = props;
 
-    const handlePress = () => {
-        align === startAlign ? setAlign('flex-end') : setAlign(startAlign);
-        requirePath === startPath ? setRequirePath(require('../../assets/x-icon.png')) : setRequirePath(startPath);
-    }
-
+    
     const internalStyles = {width: dimensions.window.width, 
                             backgroundColor: bgColor,
                             justifyContent: align}

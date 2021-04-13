@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image, ImageBackground} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 
 const WidgetIcon = props => {
     const {path, bgColor} = props;
