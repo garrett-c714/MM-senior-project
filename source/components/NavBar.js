@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     nav: {
         flexDirection: 'row',
         alignItems: 'center',
-        height: 65
+        justifyContent: 'center',
+        height: 85
     },
     img: {
         marginLeft: 15,

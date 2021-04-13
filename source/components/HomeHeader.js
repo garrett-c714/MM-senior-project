@@ -16,7 +16,7 @@ const HomeHeader = props => {
 const styles = StyleSheet.create({
     headerBox: {
         flexDirection: 'row',
-        height: 250,
+        height: 180,
         width: '100%',
       },
       headerText: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         color: 'white',
       },
       welcome: {
-        fontSize: 50,
+        fontSize: 40,
         fontFamily: 'Arial',
       },
 })
