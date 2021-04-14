@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Image, Text} from 'react-native';
 
 const NavLink = props => {
-    const {image, children} = props;
+    const {image, children, bottom} = props;
     return (
         <View style={styles.container}>
             <Image style={styles.img} source={image} />
@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     },
     img: {
         height: 40,
-        width: 40
+        width: 40,
+        marginRight: 10
     },
      text: {
          color: 'white',

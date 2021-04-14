@@ -7,8 +7,10 @@ const Nav = props => {
     return (
         <View style={styles.bigBox}>
             <NavLink image={require('../../assets/house-icon.png')}><Text>Home</Text></NavLink>
-            <NavLink image={require('../../assets/house-icon.png')}><Text>Classes</Text></NavLink>
-            <NavLink style={styles.preferences} image={require('../../assets/settings-icon.png')}><Text>Preferences</Text></NavLink>
+            <NavLink image={require('../../assets/cap-icon.png')}><Text>Classes</Text></NavLink>
+            <View style={styles.bottom}>
+                <NavLink bottom={true} image={require('../../assets/settings-icon.png')}><Text>Preferences</Text></NavLink>
+            </View>
         </View>
     );
 }
@@ -24,8 +26,8 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center'
       },
-      preferences: {
-          //MAKE IT GO TO THE BOTTOM
+      bottom: {
+          marginTop: 'auto'
       }
 });
 

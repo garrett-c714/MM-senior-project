@@ -1,8 +1,15 @@
 import React from 'react';
 import {View, StyleSheet, Text, Image, ImageBackground} from 'react-native';
+import { useFonts } from 'expo-font';
 
 const HomeHeader = props => {
-  const image = require('../../assets/header-background.jpg')
+  const image = require('../../assets/header-background.jpg');
+  const [loaded] = useFonts({
+    Oswald: require('../../assets/Fonts/Oswald-Regular.ttf')
+  });
+    if (!loaded) {
+      return null;
+    }
     return (
       <View style={styles.headerBox}> 
         <ImageBackground source={ image } style={styles.headerText}>
@@ -27,6 +34,7 @@ const styles = StyleSheet.create({
       },
       text: {
         color: 'white',
+        fontFamily: 'Oswald'
       },
       welcome: {
         fontSize: 40,
