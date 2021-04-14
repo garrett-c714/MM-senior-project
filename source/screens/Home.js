@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar.js';
 import HomeHeader from '../components/HomeHeader.js';
 import Widgets from '../components/Widgets.js';
 import Nav from '../components/Nav.js';
+import Blur from '../components/Blur.js';
 
 const Home = props => {
     const [navOpen, setNavOpen] = useState(false);
@@ -22,7 +23,7 @@ const Home = props => {
 
     return (
     <SafeAreaView style={styles.container}>
-      {navOpen && <Nav />}
+        {navOpen && <Nav />}
       <View>
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
       </View>

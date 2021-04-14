@@ -1,8 +1,17 @@
 import React from 'react';
 import {View, StyleSheet, Image, Text} from 'react-native';
+import { useFonts } from 'expo-font';
 
 const NavLink = props => {
+    const [loaded] = useFonts({
+        Raleway: require('../../assets/Fonts/Raleway-Regular.ttf')
+    });
+    
     const {image, children, bottom} = props;
+
+    if (!loaded) {
+        return null;
+    }
     return (
         <View style={styles.container}>
             <Image style={styles.img} source={image} />
@@ -25,6 +34,7 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
      text: {
+         fontFamily: 'Raleway',
          color: 'white',
          fontSize: 28
      }
