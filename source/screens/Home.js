@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar.js';
 import HomeHeader from '../components/HomeHeader.js';
 import Widgets from '../components/Widgets.js';
 import Nav from '../components/Nav.js';
+import HomeScroll from '../components/HomeScroll.js';
 import Blur from '../components/Blur.js';
 
 const Home = props => {
@@ -29,9 +30,7 @@ const Home = props => {
       </View>
       <HomeHeader />
       <Widgets />
-      <View style={styles.main}>
-        <Text>Hello World!</Text>
-      </View>
+      <HomeScroll />
       <StatusBar style="auto" />
     </SafeAreaView>
     );
@@ -43,11 +42,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'flex-start',
-      },
-      main: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
       }
 });
 
