@@ -5,7 +5,8 @@ import { useFonts } from 'expo-font';
 const HomeHeader = props => {
   const image = require('../../assets/header-background.jpg');
   const [loaded] = useFonts({
-    Oswald: require('../../assets/Fonts/Oswald-Regular.ttf')
+    Oswald: require('../../assets/Fonts/Oswald-Regular.ttf'),
+    Raleway: require('../../assets/Fonts/Raleway-Regular.ttf')
   });
     if (!loaded) {
       return null;
@@ -14,7 +15,7 @@ const HomeHeader = props => {
       <View style={styles.headerBox}> 
         <ImageBackground source={ image } style={styles.headerText}>
             <Text style={[styles.welcome, styles.text]}>Welcome, Garrett!</Text>
-            <Text style={styles.text}>-- Wednesday, April 7th, 2021 --</Text>
+            <Text style={[styles.text, styles.raleway]}>-- Wednesday, April 7th, 2021 --</Text>
         </ImageBackground>
       </View>
     );
@@ -40,6 +41,9 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontFamily: 'Arial',
       },
+      raleway: {
+        fontFamily: 'Raleway'
+      }
 })
 
 export default HomeHeader;

@@ -3,17 +3,20 @@ import React from 'react';
 import {View, StyleSheet, Image, Text} from 'react-native';
 import Colors from '../colors.js';
 import NavLink from './NavLink.js';
+import {Link} from 'react-router-native';
 
 const Nav = props => {
     const dimensions = useDimensions();
 
     return (
         <View style={[styles.bigBox, {height: dimensions.screen.height}]}>
-            {/* <View style={styles.topLinks} > */}
-                <View style={styles.dumb}></View>
+            <View style={styles.dumb}></View>
+            <Link to='/'>
                 <NavLink image={require('../../assets/house-icon.png')}><Text>Home</Text></NavLink>
+            </Link>
+            <Link to='/classes'>
                 <NavLink image={require('../../assets/cap-icon.png')}><Text>Classes</Text></NavLink>
-            {/* </View> */}
+            </Link>
             <View style={styles.bottom}>
                 <NavLink bottom={true} image={require('../../assets/settings-icon.png')}><Text>Preferences</Text></NavLink>
             </View>
@@ -25,7 +28,6 @@ const styles = StyleSheet.create({
     bigBox: {
         zIndex: 4,
         backgroundColor: Colors.charcoal,
-        //height: '120%',
         width: '80%',
         position: 'absolute',
         left: 0,
