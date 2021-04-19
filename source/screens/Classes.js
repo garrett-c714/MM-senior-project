@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet, Image, Text, SafeAreaView} from 'react-native';
 import NavBar from '../components/NavBar';
 import Nav from '../components/Nav.js';
+import Modal from '../components/Modal.js';
 import Colors from '../colors.js';
 
 const Classes = props => {
@@ -17,12 +18,16 @@ const Classes = props => {
       setNavOpen(!navOpen);
     }
 
+    const handleXClick = () => {
+        console.log("'Lol' -Tyler");
+    }
+
     return (
     <SafeAreaView style={styles.container}>
         {navOpen && <Nav />}
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
         <View style={styles.main}>
-
+            <Modal barColor={Colors.peach} XClick={handleXClick} />
         </View>
     </SafeAreaView>
     );
@@ -35,7 +40,9 @@ const styles = StyleSheet.create({
     },
     main: {
         flex: 1,
-        backgroundColor: 'purple'
+        backgroundColor: 'purple',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 

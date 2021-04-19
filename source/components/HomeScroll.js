@@ -22,6 +22,7 @@ const HomeScroll = props => {
                     <Text style={[styles.bigText, styles.oswald]} >Today:</Text>
                     <View style={styles.number}><NumberBox bgColor={Colors.red}><Text>4</Text></NumberBox></View>
                 </View>
+                <Text style={styles.caption}>Swipe up to see your daily breakdown...</Text>
             </View>
         </View>
     );
@@ -34,7 +35,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        marginTop: -15
+        marginTop: -20,
+        borderTopRightRadius: 40,
+        borderTopLeftRadius: 40
       },
     bar: {
         backgroundColor: Colors.gray,
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'center'
     },
     today: {
@@ -64,6 +67,10 @@ const styles = StyleSheet.create({
     },
     number: {
         margin: 20
+    },
+    caption: {
+        color: 'gray',
+        fontFamily: 'Raleway'
     }
 });
 

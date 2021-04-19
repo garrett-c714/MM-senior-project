@@ -21,13 +21,16 @@ const NumberBox = props => {
 
 const styles = StyleSheet.create({
     box: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
         borderRadius: 15,
         width: 80,
         height: 80,
     },
     text: {
         fontFamily: 'Raleway',
-        fontSize: 35,
+        fontSize: 60,
         color: 'white'
     },
     center: {
