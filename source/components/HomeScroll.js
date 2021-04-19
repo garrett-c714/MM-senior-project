@@ -1,15 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {View, StyleSheet, Image, Text} from 'react-native';
 import { useFonts } from 'expo-font';
+import * as Font from 'expo-font';
 import Colors from '../colors.js';
 import NumberBox from "./NumberBox";
 
 const HomeScroll = props => {
-    const [loaded] = useFonts({
-        Oswald: require('../../assets/Fonts/Oswald-Regular.ttf'),
-        Raleway: require('../../assets/Fonts/Raleway-Regular.ttf')
-    });
-
+    const [loaded, setLoaded] = useState(true);
 
     if (!loaded) {
         return null;
@@ -19,7 +16,7 @@ const HomeScroll = props => {
             <View style={styles.bar}></View>
             <View style={styles.textContainer}>
                 <View style={styles.today}>
-                    <Text style={[styles.bigText, styles.oswald]} >Today:</Text>
+                    <Text style={[styles.bigText]} >Today:</Text>
                     <View style={styles.number}><NumberBox bgColor={Colors.red}><Text>4</Text></NumberBox></View>
                 </View>
                 <Text style={styles.caption}>Swipe up to see your daily breakdown...</Text>
@@ -59,18 +56,12 @@ const styles = StyleSheet.create({
     bigText: {
         fontSize: 55
     },
-    raleway: {
-        fontFamily: 'Raleway'
-    },
-    oswald: {
-        fontFamily: 'Oswald'
-    },
     number: {
         margin: 20
     },
     caption: {
         color: 'gray',
-        fontFamily: 'Raleway'
+        //fontFamily: 'Raleway'
     }
 });
 

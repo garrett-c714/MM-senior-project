@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         height: 80,
     },
     text: {
-        fontFamily: 'Raleway',
+        //fontFamily: 'Raleway',
         fontSize: 60,
         color: 'white'
     },

@@ -34,15 +34,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
       },
       text: {
-        color: 'white',
-        fontFamily: 'Oswald'
+        color: 'white'
       },
       welcome: {
         fontSize: 40,
-        fontFamily: 'Arial',
-      },
-      raleway: {
-        fontFamily: 'Raleway'
       }
 })
 
