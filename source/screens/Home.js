@@ -38,6 +38,7 @@ const Home = props => {
       <HomeHeader />
       <View style={styles.widgetContainer} >
             <View style={styles.widgetInnerBox}>
+                <WidgetIcon path={require('../../assets/check-icon.png')} bgColor={'white'} />
                 <TouchableHighlight onPress={handleWeatherToggle}>
                     <WidgetIcon path={require('../../assets/sun-icon.png')} bgColor={Colors.peach} />
                 </TouchableHighlight>

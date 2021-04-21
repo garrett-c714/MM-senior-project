@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 25,
-        margin: 40
+        margin: 25
     },
     img: {
         width: "80%",
