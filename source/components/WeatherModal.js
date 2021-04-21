@@ -63,7 +63,9 @@ const styles = StyleSheet.create({
         width: 350,
         height: 500,
         backgroundColor: 'white',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        borderColor: Colors.charcoal,
+        borderWidth: 2
     },
     bar: {
         flexDirection: 'row',
