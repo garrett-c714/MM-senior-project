@@ -2,6 +2,8 @@ import React, {useContext} from 'react';
 import {View, StyleSheet, Image, Text, TouchableHighlight} from 'react-native';
 import {ListContext} from '../context/ListContext.js';
 
+import TodoItem from './TodoItem.js';
+
 import Colors from '../colors.js';
 
 
@@ -16,6 +18,7 @@ const ChecklistModal = props => {
                     <TouchableHighlight onPress={XClick}><Image style={styles.Ximg} source={require('../../assets/x-icon.png')} /></TouchableHighlight>
                 </View>
                 <View style={styles.content}>
+                    <TodoItem text={'Test Item'} color={Colors.blue} />
                     <View style={styles.buttons}>
                         <View style={styles.plusButton}>
                             <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
@@ -64,7 +67,8 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        alignItems: 'center'
     },
     buttons: {
         flexDirection: 'row',
