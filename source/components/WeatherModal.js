@@ -9,10 +9,10 @@ const Modal = props => {
     const {barColor, XClick} = props;
     
     return (
-        <View style={[styles.biggerContainer, {width: dimensions.window.width, height: dimensions.window.height}]}>
+        <View style={styles.biggerContainer}>
             <View style={styles.container}>
                 <View style={[styles.bar, {backgroundColor: barColor}]}>
-                    <TouchableHighlight><Image style={styles.Ximg} source={require('../../assets/x-icon.png')} /></TouchableHighlight>
+                    <TouchableHighlight onPress={XClick}><Image style={styles.Ximg} source={require('../../assets/x-icon.png')} /></TouchableHighlight>
                 </View>
                 <View style={styles.head}>
                     <View style={styles.imgBox}>
@@ -50,11 +50,13 @@ const Modal = props => {
 
 const styles = StyleSheet.create({
     biggerContainer: {
+        width: "100%",
+        height: "100%",
         position: 'absolute',
-        top: 0,
-        left: 0,
+        backgroundColor: 'rgba(255,255,255,0.7)',
         justifyContent: 'center',
         alignItems: 'center',
+        zIndex: 999
     },
     container: {
         borderRadius: 25,
@@ -126,7 +128,7 @@ const styles = StyleSheet.create({
     dot: {
         width: 10,
         height: 10,
-        borderRadius: "50%",
+        borderRadius: 50,
         backgroundColor: Colors.gray
     },
     bodyText: {

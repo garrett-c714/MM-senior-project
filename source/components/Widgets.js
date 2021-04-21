@@ -1,13 +1,17 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image, ImageBackground} from 'react-native';
+import {View, StyleSheet, Text, Image, ImageBackground, TouchableHighlight} from 'react-native';
 import WidgetIcon from './WidgetIcon.js';
 import Colors from '../colors.js';
 
 const Widgets = props => {
+    const {weatherOpen, weatherToggle} = props;
+
     return (
         <View style={styles.container} >
             <View style={styles.innerBox}>
-                <WidgetIcon path={require('../../assets/sun-icon.png')} bgColor={Colors.peach} />
+                <TouchableHighlight onPress={weatherToggle}>
+                    <WidgetIcon path={require('../../assets/sun-icon.png')} bgColor={Colors.peach} />
+                </TouchableHighlight>
                 <WidgetIcon path={require('../../assets/clock-icon.png')} bgColor={Colors.gray} />
             </View>
         </View>
