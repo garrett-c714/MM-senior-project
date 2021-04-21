@@ -11,10 +11,10 @@ const Nav = props => {
     return (
         <View style={[styles.bigBox, {height: dimensions.screen.height}]}>
             <View style={styles.dumb}></View>
-            <Link to='/'>
+            <Link to='/' style={styles.link}>
                 <NavLink image={require('../../assets/house-icon.png')}><Text>Home</Text></NavLink>
             </Link>
-            <Link to='/classes'>
+            <Link to='/classes' style={styles.link}>
                 <NavLink image={require('../../assets/cap-icon.png')}><Text>Classes</Text></NavLink>
             </Link>
             <View style={styles.bottom}>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 0,
         justifyContent: 'flex-start',
-        alignItems: 'center'
+        alignItems: 'center',
       },
       bottom: {
           flexDirection: 'row',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
       topLinks: {
           width: "100%",
           flexDirection: 'row',
-          //justifyContent: 'center'
+          justifyContent: 'center',
           backgroundColor: 'purple',
           alignItems: 'center',
           justifyContent: 'center',
@@ -51,6 +51,11 @@ const styles = StyleSheet.create({
       dumb: {
           height: 40,
           width: "100%"
+      },
+      link: {
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center'
       }
 });
 
