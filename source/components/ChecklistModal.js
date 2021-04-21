@@ -12,6 +12,16 @@ const ChecklistModal = props => {
                 <View style={[styles.bar, {backgroundColor: barColor}]}>
                     <TouchableHighlight onPress={XClick}><Image style={styles.Ximg} source={require('../../assets/x-icon.png')} /></TouchableHighlight>
                 </View>
+                <View style={styles.content}>
+                    <View style={styles.buttons}>
+                        <View style={styles.plusButton}>
+                            <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
+                        </View>
+                        <View style={styles.checkButton}>
+                            <Image style={styles.checkImg} source={require('../../assets/checked-button.png')} />
+                        </View>
+                    </View>
+                </View>
             </View>
         </View>
     );
@@ -49,6 +59,41 @@ const styles = StyleSheet.create({
         width: 50,
         margin: 15
     },
+    content: {
+        flex: 1,
+        justifyContent: 'flex-start'
+    },
+    buttons: {
+        flexDirection: 'row',
+        width: "100%",
+        height: 100,
+        marginTop: "auto",
+        borderBottomLeftRadius: 25,
+        borderBottomRightRadius: 25
+    },
+    plusButton: {
+        flex: 2,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        borderBottomLeftRadius: 25,
+    },
+    checkButton: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomRightRadius: 25
+    },
+    plusImg: {
+        height: 70,
+        width: 70,
+        margin: 20,
+    },
+    checkImg: {
+        width: 50,
+        height: 50
+    }
 });
 
 export default ChecklistModal;
