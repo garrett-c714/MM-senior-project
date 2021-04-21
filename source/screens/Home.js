@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     widgetInnerBox: {
         transform: [{ rotate: "3deg" }],
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
         height: "100%"
     } 

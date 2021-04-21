@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, StyleSheet, Image, Text, TouchableHighlight} from 'react-native';
+import {ListContext} from '../context/ListContext.js';
 
 import Colors from '../colors.js';
 
 
 const ChecklistModal = props => {
+    const context = useContext(ListContext);
     const {barColor, XClick} = props; 
+    
     return (
         <View style={styles.biggerContainer}>
             <View style={styles.container}>

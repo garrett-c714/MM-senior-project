@@ -12,13 +12,13 @@ const WidgetIcon = props => {
 
 const styles = StyleSheet.create({
     box: {
-        width: 120,
-        height: 120,
+        width: 100,
+        height: 100,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 25,
-        margin: 25
+        //margin: 25
     },
     img: {
         width: "80%",
