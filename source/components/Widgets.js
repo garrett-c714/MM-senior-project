@@ -7,8 +7,8 @@ const Widgets = props => {
     const {weatherOpen, weatherToggle} = props;
 
     return (
-        <View style={styles.container} >
-            <View style={styles.innerBox}>
+        <View style={styles.widgetContainer} >
+            <View style={styles.widgetInnerBox}>
                 <TouchableHighlight onPress={weatherToggle}>
                     <WidgetIcon path={require('../../assets/sun-icon.png')} bgColor={Colors.peach} />
                 </TouchableHighlight>
@@ -19,7 +19,7 @@ const Widgets = props => {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    widgetContainer: {
         backgroundColor: '#29465B',
         flex: 1,
         width: "110%",
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         marginTop: -15,
         justifyContent: 'center'
     },
-    innerBox: {
+    widgetInnerBox: {
         transform: [{ rotate: "3deg" }],
         flexDirection: 'row',
         justifyContent: 'center',

@@ -9,6 +9,7 @@ import Nav from '../components/Nav.js';
 import HomeScroll from '../components/HomeScroll.js';
 import Blur from '../components/Blur.js';
 import WeatherModal from '../components/WeatherModal.js';  
+import WidgetIcon from '../components/WidgetIcon.js';
 
 const Home = props => {
     const [navOpen, setNavOpen] = useState(false);
@@ -35,7 +36,14 @@ const Home = props => {
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
       </View>
       <HomeHeader />
-      <Widgets weatherOpen={weatherOpen} toggleWeather={handleWeatherToggle} />
+      <View style={styles.widgetContainer} >
+            <View style={styles.widgetInnerBox}>
+                <TouchableHighlight onPress={handleWeatherToggle}>
+                    <WidgetIcon path={require('../../assets/sun-icon.png')} bgColor={Colors.peach} />
+                </TouchableHighlight>
+                <WidgetIcon path={require('../../assets/clock-icon.png')} bgColor={Colors.gray} />
+            </View>
+        </View>
       <HomeScroll />
       <StatusBar style="auto" />
     </SafeAreaView>
@@ -48,7 +56,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'flex-start',
-      }
+      },
+      widgetContainer: {
+        backgroundColor: '#29465B',
+        flex: 1,
+        width: "110%",
+        transform: [{ rotate: "-3deg" }],
+        marginTop: -15,
+        justifyContent: 'center'
+    },
+    widgetInnerBox: {
+        transform: [{ rotate: "3deg" }],
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: "100%"
+    } 
 });
 
 export default Home;
