@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text, TouchableHighlight} from 'react-native';
+import {View, StyleSheet, Image, Text, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
 import { useDimensions } from '@react-native-community/hooks';
 import { useFonts } from 'expo-font';
 import Colors from '../colors.js';
@@ -12,7 +12,7 @@ const Modal = props => {
         <View style={styles.biggerContainer}>
             <View style={styles.container}>
                 <View style={[styles.bar, {backgroundColor: barColor}]}>
-                    <TouchableHighlight onPress={XClick}><Image style={styles.Ximg} source={require('../../assets/x-icon.png')} /></TouchableHighlight>
+                    <TouchableWithoutFeedback onPress={XClick}><Image style={styles.Ximg} source={require('../../assets/x-icon.png')} /></TouchableWithoutFeedback>
                 </View>
                 <View style={styles.head}>
                     <View style={styles.imgBox}>

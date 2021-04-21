@@ -17,7 +17,7 @@ const TodoItem = props => {
             <TouchableWithoutFeedback onPress={ swapRadio } >
                 <Image style={styles.radio} source={radioPath} />
             </TouchableWithoutFeedback>
-            <Text style={styles.text}>{text}</Text>
+            <Text adjustsFontSizeToFit numberOfLines={1} style={[styles.text, styles.textWidth]}>{text}</Text>
             <View style={[styles.colorDot, {backgroundColor: color}]}></View>
             <Text style={styles.text}>|</Text>
             <Image style={styles.trash} source={require('../../assets/trash-icon.png')} />
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: "90%",
         height: 60,
-        margin: 15
+        margin: 0
     },
     radio: {
         height: 25,
@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '600',
         textAlign: 'center'
+    },
+    textWidth: {
+        width: 130
     },
     colorDot: {
         height: 30,

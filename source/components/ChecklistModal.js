@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {View, StyleSheet, Image, Text, TouchableHighlight} from 'react-native';
+import {View, StyleSheet, Image, Text, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
 import {ListContext} from '../context/ListContext.js';
 
 import TodoItem from './TodoItem.js';
@@ -15,10 +15,11 @@ const ChecklistModal = props => {
         <View style={styles.biggerContainer}>
             <View style={styles.container}>
                 <View style={[styles.bar, {backgroundColor: barColor}]}>
-                    <TouchableHighlight onPress={XClick}><Image style={styles.Ximg} source={require('../../assets/x-icon.png')} /></TouchableHighlight>
+                    <TouchableWithoutFeedback onPress={XClick}><Image style={styles.Ximg} source={require('../../assets/x-icon.png')} /></TouchableWithoutFeedback>
                 </View>
+                <View style={styles.spacer}></View>
                 <View style={styles.content}>
-                    <TodoItem text={'Test Item'} color={Colors.blue} />
+                    {context.items.map(item => <TodoItem key={item.key} text={item.text} color={item.color} />)}
                     <View style={styles.buttons}>
                         <View style={styles.plusButton}>
                             <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
@@ -64,6 +65,10 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         margin: 15
+    },
+    spacer: {
+        width: "100%",
+        height: 20
     },
     content: {
         flex: 1,
