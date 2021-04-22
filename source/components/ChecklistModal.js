@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {View, StyleSheet, Image, Alert, Text, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
+import {View, StyleSheet, Image, Alert, Text, TouchableHighlight, TouchableWithoutFeedback, ScrollView} from 'react-native';
 import {ListContext} from '../context/ListContext.js';
 
 import TodoItem from './TodoItem.js';
@@ -10,7 +10,6 @@ import Colors from '../colors.js';
 const ChecklistModal = props => {
     const context = useContext(ListContext);
     const {barColor, XClick} = props;
-    const [testState, setTestState] = useState("asdhjaska");
 
     const createItem = text => {
         const item = {
@@ -32,8 +31,9 @@ const ChecklistModal = props => {
                 </View>
                 <View style={styles.spacer}></View>
                 <View style={styles.content}>
-                    {/*<Text>{testState}</Text>*/}
-                    {context.items.map(item => <TodoItem key={item.key} num={item.key} text={item.text} color={item.color} />)}
+                    <ScrollView>
+                        {context.items.map(item => <TodoItem key={item.key} num={item.key} text={item.text} color={item.color} />)}
+                    </ScrollView>
                     <View style={styles.buttons}>
                         <View style={styles.plusButton}>
                             <TouchableWithoutFeedback onPress={handlePlusClick} >

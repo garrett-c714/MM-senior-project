@@ -6,9 +6,11 @@ const ListContext = createContext();
 const ListProvider = props => {
     const [items, setItems] = useState([]);
     const [number, setNumber] = useState(items.length);
+    const [numThings, setNumThings] = useState(items.length);
 
     useEffect(() => {
         setNumber(number+1);
+        setNumThings(items.length);
     }, [items])
 
     const addItem = newItem => {
@@ -16,8 +18,6 @@ const ListProvider = props => {
     }
     const removeItem = key => {
         const newItems = items.filter(item => item.key != key);
-        console.log(key);
-        console.log(newItems);
         setItems(newItems);
     }
 
@@ -25,7 +25,8 @@ const ListProvider = props => {
         items: items,
         addItem: addItem,
         removeItem: removeItem,
-        number: number
+        number: number,
+        numThings: numThings
     }
 
     return (

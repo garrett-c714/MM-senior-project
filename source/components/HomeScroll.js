@@ -1,23 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {View, StyleSheet, Image, Text} from 'react-native';
-import { useFonts } from 'expo-font';
-import * as Font from 'expo-font';
-import Colors from '../colors.js';
+
+import {ListContext} from '../context/ListContext.js';
 import NumberBox from "./NumberBox";
 
-const HomeScroll = props => {
-    const [loaded, setLoaded] = useState(true);
+import Colors from '../colors.js';
 
-    if (!loaded) {
-        return null;
+const HomeScroll = props => {
+    const context = useContext(ListContext);
+    let alertColor = Colors.brightGreen;
+
+    if (context.numThings >= 4 ) {
+        alertColor = Colors.red;
+    } else if (context.numThings >= 2) {
+        alertColor = Colors.peach;
+    } else if (context.numThings > 0) {
+        alertColor = Colors.yellow;
     }
+
     return (
         <View style={styles.main}>
             <View style={styles.bar}></View>
             <View style={styles.textContainer}>
                 <View style={styles.today}>
                     <Text style={[styles.bigText]} >Today:</Text>
-                    <View style={styles.number}><NumberBox bgColor={Colors.red}><Text>4</Text></NumberBox></View>
+                    <View style={styles.number}><NumberBox bgColor={alertColor}><Text>{context.numThings}</Text></NumberBox></View>
                 </View>
                 <Text style={styles.caption}>Swipe up to see your daily breakdown...</Text>
             </View>
