@@ -49,7 +49,7 @@ const HomeHeader = props => {
 const styles = StyleSheet.create({
     headerBox: {
         flexDirection: 'row',
-        height: 180,
+        height: 220,
         width: '100%',
       },
       headerText: {

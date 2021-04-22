@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
       widgetContainer: {
         backgroundColor: '#29465B',
         flex: 1,
+        maxHeight: 350,
         width: "110%",
         transform: [{ rotate: "-3deg" }],
         marginTop: -15,
