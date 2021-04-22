@@ -15,7 +15,7 @@ const HomeScroll = props => {
         console.log(testText);
     }, [testText]);
     
-    const {weather, list} = props;
+    const {weather, list, scroll, setScroll} = props;
     let alertColor = Colors.brightGreen;
 
     if (context.numThings >= 4 ) {
@@ -28,12 +28,12 @@ const HomeScroll = props => {
 
     function onSwipeUp(gestureState) {
         if (!weather && !list) {
-            setTestText("swiped up!");
+            setScroll(true);
         }
     }
     function onSwipeDown(gestureState) {
         if (!weather && !list) {
-            setTestText('swiped down!');
+            setScroll(false);
         }
     }
 

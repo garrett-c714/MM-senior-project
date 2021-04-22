@@ -43,7 +43,7 @@ const Home = props => {
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
       </View>
       <HomeHeader />
-      <View style={styles.widgetContainer} >
+      {!scrollOpen && <View style={styles.widgetContainer} >
             <View style={styles.widgetInnerBox}>
                 <TouchableHighlight onPress={handleListToggle}>
                   <WidgetIcon path={require('../../assets/check-icon.png')} bgColor={'white'} />
@@ -53,8 +53,8 @@ const Home = props => {
                 </TouchableHighlight>
                 <WidgetIcon path={require('../../assets/clock-icon.png')} bgColor={Colors.gray} />
             </View>
-        </View>
-      <HomeScroll weather={weatherOpen} list={listOpen} />
+        </View>}
+      <HomeScroll weather={weatherOpen} list={listOpen} acroll={scrollOpen} setScroll={setScrollOpen} />
       <StatusBar style="auto" />
     </SafeAreaView>
     );
