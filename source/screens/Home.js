@@ -20,6 +20,7 @@ const Home = props => {
     const [align, setAlign] = useState(startAlign);
     const [weatherOpen, setWeatherOpen] = useState(false);
     const [listOpen, setListOpen] = useState(false);
+    const [scrollOpen, setScrollOpen] = useState(false);
 
     const handlePress = () => {
       align === startAlign ? setAlign('flex-end') : setAlign(startAlign);
@@ -53,7 +54,7 @@ const Home = props => {
                 <WidgetIcon path={require('../../assets/clock-icon.png')} bgColor={Colors.gray} />
             </View>
         </View>
-      <HomeScroll />
+      <HomeScroll weather={weatherOpen} list={listOpen} />
       <StatusBar style="auto" />
     </SafeAreaView>
     );

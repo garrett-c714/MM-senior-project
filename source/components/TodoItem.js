@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     radio: {
         height: 25,
         width: 25,
-        marginLeft: 10
+        marginLeft: 20
     },
     text: {
         fontSize: 20,

@@ -15,6 +15,7 @@ const HomeScroll = props => {
         console.log(testText);
     }, [testText]);
     
+    const {weather, list} = props;
     let alertColor = Colors.brightGreen;
 
     if (context.numThings >= 4 ) {
@@ -26,16 +27,14 @@ const HomeScroll = props => {
     }
 
     function onSwipeUp(gestureState) {
-        setTestText("swiped up!");
+        if (!weather && !list) {
+            setTestText("swiped up!");
+        }
     }
     function onSwipeDown(gestureState) {
-        setTestText('swiped down!');
-    }
-    function onSwipeLeft(gestureState) {
-        setTestText('swiped left!');
-    }
-    function onSwipeRight(gestureState) {
-        setTestText('swiped right!');
+        if (!weather && !list) {
+            setTestText('swiped down!');
+        }
     }
 
     const config = {
@@ -47,8 +46,6 @@ const HomeScroll = props => {
         <GestureRecognizer
             onSwipeUp={(state) => {onSwipeUp(state)}}
             onSwipeDown={(state) => {onSwipeDown(state)}}
-            onSwipeLeft={(state) => {onSwipeLeft(state)}}
-            onSwipeRight={(state) => {onSwipeRight(state)}}
             config={config}
             style={{flex: 1, width: "100%"}}
         >

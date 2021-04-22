@@ -31,7 +31,7 @@ const ChecklistModal = props => {
                 </View>
                 <View style={styles.spacer}></View>
                 <View style={styles.content}>
-                    <ScrollView>
+                    <ScrollView contentContainerStyle={{alignItems: 'center'}} style={{width: "100%"}}>
                         {context.items.map(item => <TodoItem key={item.key} num={item.key} text={item.text} color={item.color} />)}
                     </ScrollView>
                     <View style={styles.buttons}>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         justifyContent: 'flex-start',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     buttons: {
         flexDirection: 'row',
