@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {View, StyleSheet, Image, Text, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
+
+import {ListContext} from '../context/ListContext.js';
 
 import Colors from '../colors.js';
 
 const TodoItem = props => {
-    const {text, color} = props;
+    const context = useContext(ListContext);
+    const {text, color, num} = props;
     const radioPathInit = require('../../assets/radio-icon.png');
     const [radioPath, setRadioPath] = useState(radioPathInit);
 
     const swapRadio = () => {
         radioPath === radioPathInit ? setRadioPath(require('../../assets/radio-filled.png')) : setRadioPath(radioPathInit);
+    }
+
+    const handleTrashClick = () => {
+        context.removeItem(num);
     }
     
     return (
@@ -20,7 +27,9 @@ const TodoItem = props => {
             <Text adjustsFontSizeToFit numberOfLines={1} style={[styles.text, styles.textWidth]}>{text}</Text>
             <View style={[styles.colorDot, {backgroundColor: color}]}></View>
             <Text style={styles.text}>|</Text>
-            <Image style={styles.trash} source={require('../../assets/trash-icon.png')} />
+            <TouchableHighlight onPress={handleTrashClick} >
+                <Image style={styles.trash} source={require('../../assets/trash-icon.png')} />
+            </TouchableHighlight>
         </View>
     );
 }

@@ -1,18 +1,24 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import Colors from '../colors.js';
 
 const ListContext = createContext();
 
 const ListProvider = props => {
-    const [items, setItems] = useState([{text: 'Test Item 1', color: Colors.blue, key: 0}, {text: 'Senior Project', color: Colors.mintGreen, key: 1}]);
+    const [items, setItems] = useState([]);
     const [number, setNumber] = useState(items.length);
+
+    useEffect(() => {
+        setNumber(number+1);
+    }, [items])
 
     const addItem = newItem => {
         setItems([...items, newItem]);
-        setNumber(items.length);
     }
-    const removeItem = item => {
-        //TODO
+    const removeItem = key => {
+        const newItems = items.filter(item => item.key != key);
+        console.log(key);
+        console.log(newItems);
+        setItems(newItems);
     }
 
     const value = {

@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {View, StyleSheet, Image, Text, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View, StyleSheet, Image, Alert, Text, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
 import {ListContext} from '../context/ListContext.js';
 
 import TodoItem from './TodoItem.js';
@@ -9,7 +9,20 @@ import Colors from '../colors.js';
 
 const ChecklistModal = props => {
     const context = useContext(ListContext);
-    const {barColor, XClick} = props; 
+    const {barColor, XClick} = props;
+    const [testState, setTestState] = useState("asdhjaska");
+
+    const createItem = text => {
+        const item = {
+            text: text,
+            color: Colors.blue,
+            key: context.number
+        };
+        context.addItem(item);
+    }
+    const handlePlusClick = () => {
+        Alert.prompt("Add New Item", "Type in the Item Title", text => createItem(text));
+    }
     
     return (
         <View style={styles.biggerContainer}>
@@ -19,10 +32,13 @@ const ChecklistModal = props => {
                 </View>
                 <View style={styles.spacer}></View>
                 <View style={styles.content}>
-                    {context.items.map(item => <TodoItem key={item.key} text={item.text} color={item.color} />)}
+                    {/*<Text>{testState}</Text>*/}
+                    {context.items.map(item => <TodoItem key={item.key} num={item.key} text={item.text} color={item.color} />)}
                     <View style={styles.buttons}>
                         <View style={styles.plusButton}>
-                            <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
+                            <TouchableWithoutFeedback onPress={handlePlusClick} >
+                                <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
+                            </TouchableWithoutFeedback>
                         </View>
                         <View style={styles.checkButton}>
                             <Image style={styles.checkImg} source={require('../../assets/checked-button.png')} />
