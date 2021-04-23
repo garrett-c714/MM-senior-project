@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Image, Text, SafeAreaView} from 'react-native';
+import {View, StyleSheet, Image, Text, SafeAreaView, Button, ScrollView} from 'react-native';
 import NavBar from '../components/NavBar';
 import Nav from '../components/Nav.js';
 import WeatherModal from '../components/WeatherModal.js';
@@ -12,17 +12,49 @@ const Classes = props => {
     const [requirePath, setRequirePath] = useState(startPath);
     const [align, setAlign] = useState(startAlign);
 
+    const [rory, setRory] = useState([]);
+    const [roryKey, setRoryKey] = useState(0);
+
     const handlePress = () => {
       align === startAlign ? setAlign('flex-end') : setAlign(startAlign);
       requirePath === startPath ? setRequirePath(require('../../assets/x-icon.png')) : setRequirePath(startPath);
       setNavOpen(!navOpen);
     }
 
+    const roryPress= () => {
+        const num = Number.parseInt(Math.random()*3+1, 10);
+        let imgSource;
+        switch(num) {
+            case 1:
+                imgSource = require('../../assets/rory-1.jpg');
+                break;
+            case 2:
+                imgSource = require('../../assets/rory-2.jpg');
+                break;
+            default:
+                imgSource = require('../../assets/rory-3.jpg');
+        }
+        const newRory = {
+            source: imgSource,
+            key: roryKey
+        };
+        setRory([...rory, newRory]);
+        setRoryKey(roryKey+1);
+    }
+
     return (
     <SafeAreaView style={styles.container}>
         {navOpen && <Nav />}
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
-        <View style={styles.main}></View>
+        <View style={styles.main}>
+            <View style={styles.temp}>
+                <Text style={styles.tempText}>Classes are a feature currently in the works...</Text>
+                <Button onPress={roryPress} style={styles.button} title='Click for Surpise :)' />
+            </View>
+            <ScrollView>
+                {rory.map(r => <Image key={r.key} source={r.source} style={styles.image} />)}
+            </ScrollView>
+        </View>
     </SafeAreaView>
     );
 }
@@ -35,8 +67,23 @@ const styles = StyleSheet.create({
     main: {
         flex: 1,
         backgroundColor: 'purple',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center'
+    },
+    temp: {
+        backgroundColor: 'white',
+        justifyContent:'space-evenly',
+        alignItems: 'center',
+        height: 200,
+        width: 400
+    },
+    tempText: {
+        fontSize: 20,
+        fontWeight: '600'
+    },
+    image: {
+        width: 300,
+        height: 150
     }
 });
 
