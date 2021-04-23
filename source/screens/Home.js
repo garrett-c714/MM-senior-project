@@ -51,7 +51,9 @@ const Home = props => {
                 <TouchableHighlight onPress={handleWeatherToggle}>
                     <WidgetIcon path={require('../../assets/sun-icon.png')} bgColor={Colors.peach} />
                 </TouchableHighlight>
-                <WidgetIcon path={require('../../assets/clock-icon.png')} bgColor={Colors.gray} />
+                <TouchableHighlight onPress={() =>{alert('Not Ready Yet')}}>
+                  <WidgetIcon path={require('../../assets/clock-icon.png')} bgColor={Colors.gray} />
+                </TouchableHighlight>
             </View>
         </View>}
       <HomeScroll weather={weatherOpen} list={listOpen} acroll={scrollOpen} setScroll={setScrollOpen} />
