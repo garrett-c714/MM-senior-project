@@ -1,5 +1,6 @@
 {
   "expo": {
+    "owner": "garrett-c714",
     "name": "senior-project",
     "slug": "senior-project",
     "version": "1.0.0",
@@ -28,11 +29,14 @@
     "web": {
       "build": {
         "babel": {
-          "include": ["react-router-native"]
+          "include": [
+            "react-router-native"
+          ]
         }
       },
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "My senior project for the EFCTS Multimedia Program, a productivity app built in React Native",
+    "githubUrl": "https://github.com/garrett-c714/MM-senior-project"
   }
 }
-
