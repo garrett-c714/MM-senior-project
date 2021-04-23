@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text, Image, ImageBackground} from 'react-native';
+import {View, StyleSheet, Text, Image, ImageBackground, TouchableHighlight, Alert} from 'react-native';
 
 const getDate = () => {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -31,15 +31,22 @@ const getDate = () => {
 const HomeHeader = props => {
   const image = require('../../assets/header-background.jpg');
   const [date, setDate] = useState("");
+  const [name, setName] = useState("[User]");
 
   useEffect(() => {
     setDate(getDate());
-  }, [])
+  }, []);
+
+  const handleNamePress = () => {
+    Alert.prompt("Who Are You?", "Enter Your Name", text=> {setName(text)});
+  }
 
   return (
       <View style={styles.headerBox}> 
         <ImageBackground source={ image } style={styles.headerText}>
-            <Text style={[styles.welcome, styles.text]}>Welcome, Garrett!</Text>
+            <TouchableHighlight onPress={handleNamePress}>
+              <Text style={[styles.welcome, styles.text]}>Welcome, {name}!</Text>
+            </TouchableHighlight>
             <Text style={[styles.text, styles.raleway]}>-- {date} --</Text>
         </ImageBackground>
       </View>
