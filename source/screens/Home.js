@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView, View, StyleSheet, Button, Text, Image, TouchableWithoutFeedback, TouchableHighlight} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Colors from '../colors.js';
@@ -22,9 +22,17 @@ const Home = props => {
     const [listOpen, setListOpen] = useState(false);
     const [scrollOpen, setScrollOpen] = useState(false);
 
+    useEffect(() => {
+      if (navOpen === true) {
+        setAlign('flex-end');
+        setRequirePath(require('../../assets/x-icon.png'));
+      } else {
+        setAlign(startAlign);
+        setRequirePath(startPath);
+      }
+    }, [navOpen]);
+
     const handlePress = () => {
-      align === startAlign ? setAlign('flex-end') : setAlign(startAlign);
-      requirePath === startPath ? setRequirePath(require('../../assets/x-icon.png')) : setRequirePath(startPath);
       setNavOpen(!navOpen);
     }
     const handleWeatherToggle = () => {
@@ -36,7 +44,7 @@ const Home = props => {
 
     return (
     <SafeAreaView style={styles.container}>
-        {navOpen && <Nav />}
+        {navOpen && <Nav open={navOpen} setOpen={setNavOpen} />}
         {weatherOpen && <WeatherModal barColor={Colors.peach} XClick={handleWeatherToggle} />}
         {listOpen && <ChecklistModal barColor={Colors.gray} XClick={handleListToggle} />}
       <View>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Image, Text, SafeAreaView, Button, ScrollView} from 'react-native';
 import NavBar from '../components/NavBar';
 import Nav from '../components/Nav.js';
@@ -15,9 +15,17 @@ const Classes = props => {
     const [rory, setRory] = useState([]);
     const [roryKey, setRoryKey] = useState(0);
 
+    useEffect(() => {
+        if (navOpen === true) {
+          setAlign('flex-end');
+          setRequirePath(require('../../assets/x-icon.png'));
+        } else {
+          setAlign(startAlign);
+          setRequirePath(startPath);
+        }
+      }, [navOpen]);
+
     const handlePress = () => {
-      align === startAlign ? setAlign('flex-end') : setAlign(startAlign);
-      requirePath === startPath ? setRequirePath(require('../../assets/x-icon.png')) : setRequirePath(startPath);
       setNavOpen(!navOpen);
     }
 

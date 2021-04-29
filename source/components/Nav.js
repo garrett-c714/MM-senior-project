@@ -1,6 +1,7 @@
 import { useDimensions } from '@react-native-community/hooks';
 import React from 'react';
 import {View, StyleSheet, Image, Text} from 'react-native';
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import Colors from '../colors.js';
 import NavLink from './NavLink.js';
 import {Link} from 'react-router-native';
@@ -8,8 +9,22 @@ import {Link} from 'react-router-native';
 const Nav = props => {
     const dimensions = useDimensions();
 
+    const {open, setOpen} = props;
+
+    function onSwipeLeft(gestureState) {
+        setOpen(!open);
+    }
+    const config = {
+        velocityThreshold: 0.3,
+        directionalOffsetThreshold: 80
+    }
+
     return (
         <View style={[styles.bigBox, {height: dimensions.screen.height}]}>
+            <GestureRecognizer
+                style={{flex: 1, width: "100%"}}
+                onSwipeLeft={(state) => {onSwipeLeft(state)}}
+            >
             <View style={styles.dumb}></View>
             <Link to='/' style={styles.link}>
                 <NavLink image={require('../../assets/house-icon.png')}><Text>Home</Text></NavLink>
@@ -20,6 +35,7 @@ const Nav = props => {
             <View style={styles.bottom}>
                 <NavLink bottom={true} image={require('../../assets/settings-icon.png')}><Text>Preferences</Text></NavLink>
             </View>
+            </GestureRecognizer>
         </View>
     );
 }
