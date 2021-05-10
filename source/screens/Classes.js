@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {View, StyleSheet, Image, Text, SafeAreaView, Button, ScrollView, TouchableWithoutFeedback} from 'react-native';
 
 import NavBar from '../components/NavBar';
@@ -7,7 +7,7 @@ import ClassPanel from '../components/ClassPanel.js';
 import ClassInput from '../components/ClassInput.js';
 
 
-
+import {ClassContext} from '../context/ClassContext.js';
 import Colors from '../colors.js';
 
 const Classes = props => {
@@ -17,6 +17,7 @@ const Classes = props => {
     const [requirePath, setRequirePath] = useState(startPath);
     const [align, setAlign] = useState(startAlign);
 
+    const context = useContext(ClassContext);
     const [formOpen, setFormOpen] = useState(false);
 
 
@@ -51,8 +52,11 @@ const Classes = props => {
         {navOpen && <Nav open={navOpen} setOpen={setNavOpen} />}
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
         <View style={styles.main}>
-            {formOpen && <ClassInput />}
-            <ClassPanel info={info} />
+            {formOpen && <ClassInput open={formOpen} setOpen={setFormOpen} />}
+            {/* <ClassPanel info={info} /> */}
+            <ScrollView style={styles.scrollView} >
+                {context.classes.map(c => <ClassPanel info={{name: c.name, room: c.room}} key={c.key} />)}
+            </ScrollView>
             <View style={styles.plusView}>
                 <TouchableWithoutFeedback onPress={handleAddTap} >
                     <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
@@ -73,6 +77,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'flex-start',
         alignItems: 'center'
+    },
+    scrollView: {
+        width: "100%",
     },
     plusView: {
         flexDirection: 'row',

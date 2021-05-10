@@ -1,14 +1,26 @@
-import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text, Image, TouchableHighlight, TextInput, Button, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState, useContext} from 'react';
+import {View, StyleSheet, Text, Image, TextInput, Button, TouchableOpacity} from 'react-native';
+
+import {ClassContext} from '../context/ClassContext.js';
 
 import Colors from '../colors.js';
 
 const ClassInput = props => {
+    const {open, setOpen} = props;
     const [name, onChangeName] = useState("");
     const [number, onChangeNumber] = useState("");
+    const context = useContext(ClassContext);
 
     const handleSubmit = () => {
-
+        const newClass = {
+            name: name,
+            room: number,
+            key: context.number
+        };
+        context.addClass(newClass);
+        onChangeName("");
+        onChangeNumber("");
+        setOpen(!open);
     };
 
     return (

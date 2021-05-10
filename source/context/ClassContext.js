@@ -1,12 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react';
-import Colors from '../colors.js';
 
 import Colors from '../colors.js';
 
 const ClassContext = createContext();
 
 const ClassProvider = props => {
-    const [classes, setClasses] = useState([{name: 'Calculus', key: 0}, {name: 'Physics', key: 1}]);
+    const [classes, setClasses] = useState([{name: 'Calculus', room: 310, key: 0}, {name: 'Physics', room: 129, key: 1}]);
     const [number, setNumber] = useState(classes.length);
 
     useEffect(() => {

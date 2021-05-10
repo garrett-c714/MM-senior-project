@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Button, StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import {ListProvider} from './source/context/ListContext.js';
+import {ClassProvider} from './source/context/ClassContext.js';
 import Home from './source/screens/Home.js';
 import {NativeRouter, Route, Switch} from 'react-router-native';
 import Classes from './source/screens/Classes.js';
@@ -30,7 +31,13 @@ function App() {
 }
 export default function AppWrapper() {
   return (
-    <ListProvider><NativeRouter><App /></NativeRouter></ListProvider>
+    <ClassProvider>
+      <ListProvider>
+        <NativeRouter>
+          <App />
+        </NativeRouter>
+      </ListProvider>
+    </ClassProvider>
   )
 }
 const styles = StyleSheet.create({
