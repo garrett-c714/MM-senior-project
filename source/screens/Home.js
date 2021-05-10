@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, View, StyleSheet, Button, Text, Image, TouchableWithoutFeedback, TouchableHighlight} from 'react-native';
+import {SafeAreaView, View, StyleSheet, TouchableOpacity} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Colors from '../colors.js';
 import NavBar from '../components/NavBar.js';
 import HomeHeader from '../components/HomeHeader.js';
-import Widgets from '../components/Widgets.js';
 import Nav from '../components/Nav.js';
 import HomeScroll from '../components/HomeScroll.js';
-import Blur from '../components/Blur.js';
 import WidgetIcon from '../components/WidgetIcon.js';
 import WeatherModal from '../components/WeatherModal.js';
 import ChecklistModal from '../components/ChecklistModal.js';
@@ -53,15 +51,15 @@ const Home = props => {
       <HomeHeader />
       {!scrollOpen && <View style={styles.widgetContainer} >
             <View style={styles.widgetInnerBox}>
-                <TouchableHighlight onPress={handleListToggle}>
+                <TouchableOpacity onPress={handleListToggle}>
                   <WidgetIcon path={require('../../assets/check-icon.png')} bgColor={'white'} />
-                </TouchableHighlight>
-                <TouchableHighlight onPress={handleWeatherToggle}>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handleWeatherToggle}>
                     <WidgetIcon path={require('../../assets/sun-icon.png')} bgColor={Colors.peach} />
-                </TouchableHighlight>
-                <TouchableHighlight onPress={() =>{alert('Not Ready Yet')}}>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() =>{alert('Not Ready Yet')}}>
                   <WidgetIcon path={require('../../assets/clock-icon.png')} bgColor={Colors.gray} />
-                </TouchableHighlight>
+                </TouchableOpacity>
             </View>
         </View>}
       <HomeScroll weather={weatherOpen} list={listOpen} acroll={scrollOpen} setScroll={setScrollOpen} />

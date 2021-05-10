@@ -4,8 +4,16 @@ import Colors from '../colors.js';
 
 const ClassContext = createContext();
 
+/* ---
+interface c {
+    name: String,
+    room: number,
+    key: number,
+}
+--- */
+
 const ClassProvider = props => {
-    const [classes, setClasses] = useState([{name: 'Calculus', room: 310, key: 0}, {name: 'Physics', room: 129, key: 1}]);
+    const [classes, setClasses] = useState([]);
     const [number, setNumber] = useState(classes.length);
 
     useEffect(() => {
@@ -13,7 +21,7 @@ const ClassProvider = props => {
     }, [classes]);
     
     const addClass = newClass => {
-        setClasses([...classes, newClass]);
+        setClasses([newClass, ...classes]);
     }
     const removeClass = key => {
         const newClasses = classes.filter(c => c.key != key);

@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {View, StyleSheet, Image, Text, SafeAreaView, Button, ScrollView, TouchableWithoutFeedback} from 'react-native';
+import {View, StyleSheet, Image, Text, SafeAreaView, Button, ScrollView, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
 
 import NavBar from '../components/NavBar';
 import Nav from '../components/Nav.js';
 import ClassPanel from '../components/ClassPanel.js';
 import ClassInput from '../components/ClassInput.js';
+import ClassModal from '../components/ClassModal.js';
 
 
 import {ClassContext} from '../context/ClassContext.js';
@@ -19,6 +20,7 @@ const Classes = props => {
 
     const context = useContext(ClassContext);
     const [formOpen, setFormOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
 
 
     useEffect(() => {
@@ -37,6 +39,11 @@ const Classes = props => {
 
     const handleAddTap = () => {
         setFormOpen(!formOpen);
+        setModalOpen(true);
+    }
+
+    const handleXClick = () => {
+        setModalOpen(false);
     }
 
     /*Temp*/
@@ -50,17 +57,18 @@ const Classes = props => {
     return (
     <SafeAreaView style={styles.container}>
         {navOpen && <Nav open={navOpen} setOpen={setNavOpen} />}
+        {modalOpen && <ClassModal XClick={handleXClick} />}
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
         <View style={styles.main}>
             {formOpen && <ClassInput open={formOpen} setOpen={setFormOpen} />}
-            {/* <ClassPanel info={info} /> */}
+            {context.classes.length === 0 && formOpen === false && <Text>Add a class with the plus button!</Text>}
             <ScrollView style={styles.scrollView} >
                 {context.classes.map(c => <ClassPanel info={{name: c.name, room: c.room}} key={c.key} />)}
             </ScrollView>
             <View style={styles.plusView}>
-                <TouchableWithoutFeedback onPress={handleAddTap} >
+                <TouchableOpacity onPress={handleAddTap} >
                     <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
-                </TouchableWithoutFeedback>
+                </TouchableOpacity>
             </View>
         </View>
     </SafeAreaView>
