@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text, Image, TouchableHighlight} from 'react-native';
+import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import {useDimensions} from '@react-native-community/hooks';
 
 const NavBar = props => {
@@ -14,9 +14,9 @@ const NavBar = props => {
 
     return (
         <View style={[styles.nav, internalStyles]}>
-            <TouchableHighlight onPress={handlePress} > 
+            <TouchableOpacity onPress={handlePress} > 
                 <Image style={styles.img} source={requirePath} />
-            </TouchableHighlight>
+            </TouchableOpacity>
         </View>
     );
 }

@@ -6,6 +6,8 @@ import Nav from '../components/Nav.js';
 import ClassPanel from '../components/ClassPanel.js';
 import ClassInput from '../components/ClassInput.js';
 
+
+
 import Colors from '../colors.js';
 
 const Classes = props => {
@@ -46,7 +48,7 @@ const Classes = props => {
 
     return (
     <SafeAreaView style={styles.container}>
-        {navOpen && <Nav />}
+        {navOpen && <Nav open={navOpen} setOpen={setNavOpen} />}
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
         <View style={styles.main}>
             {formOpen && <ClassInput />}
