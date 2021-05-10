@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Image, Text, SafeAreaView, Button, ScrollView} from 'react-native';
+import {View, StyleSheet, Image, Text, SafeAreaView, Button, ScrollView, TouchableWithoutFeedback} from 'react-native';
+
 import NavBar from '../components/NavBar';
 import Nav from '../components/Nav.js';
 import ClassPanel from '../components/ClassPanel.js';
+import ClassInput from '../components/ClassInput.js';
 
 import Colors from '../colors.js';
 
@@ -12,6 +14,8 @@ const Classes = props => {
     const startPath = require('../../assets/bamhurger.png');
     const [requirePath, setRequirePath] = useState(startPath);
     const [align, setAlign] = useState(startAlign);
+
+    const [formOpen, setFormOpen] = useState(false);
 
 
     useEffect(() => {
@@ -28,6 +32,10 @@ const Classes = props => {
       setNavOpen(!navOpen);
     }
 
+    const handleAddTap = () => {
+        setFormOpen(!formOpen);
+    }
+
     /*Temp*/
     const info = {
         name: 'AP Calculus BC',
@@ -41,9 +49,12 @@ const Classes = props => {
         {navOpen && <Nav />}
         <NavBar bgColor={Colors.mintGreen} handlePress={handlePress} requirePath={requirePath} align={align} />
         <View style={styles.main}>
+            {formOpen && <ClassInput />}
             <ClassPanel info={info} />
             <View style={styles.plusView}>
-                <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
+                <TouchableWithoutFeedback onPress={handleAddTap} >
+                    <Image style={styles.plusImg} source={require('../../assets/add-button.png')} />
+                </TouchableWithoutFeedback>
             </View>
         </View>
     </SafeAreaView>
