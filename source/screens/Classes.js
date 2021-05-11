@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     plusView: {
+        backgroundColor: 'rgba(255,255,255,0.2)',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
