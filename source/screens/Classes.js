@@ -39,7 +39,7 @@ const Classes = props => {
 
     const handleAddTap = () => {
         setFormOpen(!formOpen);
-        setModalOpen(true);
+        //setModalOpen(true);
     }
 
     const handleXClick = () => {
